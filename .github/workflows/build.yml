@@ -59,6 +59,13 @@ jobs:
         uses: actions/checkout@main
         with:
           submodules: 'true'
+
+      - name: "Download back MacOS file"
+        uses: actions/download-artifact@master
+        with:
+          name: release_macos
+          path: release_macos # file should be at release_macos/FileEncrypter_macos
+
       - name: "Download back Ubuntu file"
         uses: actions/download-artifact@master
         with:
@@ -78,6 +85,7 @@ jobs:
           tag_name: ${{ github.ref_name }}-ga
           files: |
             release_ubuntu/FileEncrypter_ubuntu
+            release_macos/FileEncrypter_macos
             release_windows/FileEncrypter_windows.exe
           
     

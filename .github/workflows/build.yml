@@ -40,13 +40,13 @@ jobs:
           build-type: Release
 
       - name: "Rename for Artifact"
-        run: mv ${{ runner.workspace }}/build/FileEncrypter${{ matrix.config.ext }} ${{ runner.workspace }}/build/FileEncrypter_${{ matrix.config.name }}${{ matrix.config.ext }}
+        run: mv ${{ runner.workspace }}/build/FileEncrypter/FileEncrypter${{ matrix.config.ext }} ${{ runner.workspace }}/build/FileEncrypter/FileEncrypter_${{ matrix.config.name }}${{ matrix.config.ext }}
 
       - name: Save build folder as artifact
         uses: actions/upload-artifact@main
         with:
           name: release_${{ matrix.config.name }}
-          path: ${{ runner.workspace }}/build/FileEncrypter_${{ matrix.config.name }}${{ matrix.config.ext }}
+          path: ${{ runner.workspace }}/build/FileEncrypter/FileEncrypter_${{ matrix.config.name }}${{ matrix.config.ext }}
 
 
    
